@@ -5,43 +5,42 @@
   font-family: Arial, sans-serif;
 }
 
-/* Desain Halaman Utama */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: url('StartQuiz.svg') no-repeat center center fixed;
+  background: url('Start\ Quiz.svg') no-repeat center center fixed;
   background-color: #f0f2f5;
   padding: 20px;
   color: #333;
 }
 
-
-/* Desain untuk Heading */
 h1, h2 {
   color: #333;
   margin-bottom: 20px;
 }
 
-/* Tombol */
 button {
-  padding: 10px 20px;
-  background-color: #007BFF;
+  padding: 20px 40px;
+  margin: 10px;
+  background-color: #28d587;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
   transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #20b371;
+  transform: scale(1.05);
 }
 
-/* Form Container */
 .form-container {
   width: 100%;
   max-width: 400px;
@@ -83,9 +82,8 @@ button:hover {
   font-size: 18px;
 }
 
-/* Quiz Container */
 #quiz-container {
-  width: 100%;
+  width: 50%;
   max-width: 600px;
   background-color: #fff;
   padding: 20px;
@@ -111,7 +109,7 @@ button:hover {
 #choices {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 #choices button {
@@ -133,14 +131,12 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Timer and Status */
 #timer, #status {
   font-size: 16px;
   margin-top: 10px;
   color: #666;
 }
 
-/* Navigation for Questions */
 #question-navigation {
   display: flex;
   flex-wrap: wrap;
@@ -152,9 +148,10 @@ button:hover {
 #question-navigation button {
   width: 35px;
   height: 35px;
+  text-shadow: #333;
   background-color: #ddd;
   border: none;
-  border-radius: 50%;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   color: #333;
@@ -171,7 +168,6 @@ button:hover {
   color: #fff;
 }
 
-/* Result Page */
 #result-container {
   width: 100%;
   max-width: 400px;

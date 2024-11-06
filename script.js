@@ -5,9 +5,10 @@ let timeLeft = 30;
 let questions = [
     { type: 'choice', question: 'Berapakah hasil dari 8 + 5?', choices: ['11', '12', '13','14'], answer: '13', points: 10 },
     { type: 'choice', question: 'Berapakah hasil dari 9 - 4?', choices: ['3', '4', '5','6'], answer: '5', points: 10 },
-    { type: 'text', question: 'Berapakah hasil dari 6 dikali 3?', answer: '18', points: 10 },
-    { type: 'text', question: 'Sebuah kotak berisi 15 pensil. Jika 6 pensil dipinjam oleh teman, berapa pensil yang tersisa di dalam kotak?', answer: '9', points: 10 }
+    { type: 'choice', question: 'Berapakah hasil dari 3 x 4?', choices: ['11', '12', '13','14'], answer: '12', points: 10 },
+    { type: 'choice', question: 'Berapakah hasil dari 15 ÷ 3?', choices: ['3', '4', '5','6'], answer: '5', points: 10 },
 ];
+
 let playerData = {};
 let answeredQuestions = Array(questions.length).fill(false);
 
@@ -26,12 +27,12 @@ function startQuiz() {
 
 function createNavigation() {
     let navContainer = document.getElementById('question-navigation');
-    navContainer.innerHTML = ''; // Bersihkan navigasi sebelumnya
+    navContainer.innerHTML = ''; 
     questions.forEach((_, index) => {
         let button = document.createElement('button');
         button.innerText = index + 1;
         button.onclick = () => navigateToQuestion(index);
-        button.classList.toggle('completed', answeredQuestions[index]); // Tandai soal yang sudah dijawab
+        button.classList.toggle('completed', answeredQuestions[index]); 
         navContainer.appendChild(button);
     });
 }
@@ -49,9 +50,8 @@ function showQuestion() {
     choicesDiv.innerHTML = '';
     let answerInput = document.getElementById('answer');
     
-    // Menampilkan atau menyembunyikan input jawaban sesuai tipe soal
     answerInput.style.display = questionData.type === 'text' ? 'block' : 'none';
-    answerInput.value = ''; // Reset input untuk soal isian
+    answerInput.value = ''; 
 
     if (questionData.type === 'choice') {
         questionData.choices.forEach((choice) => {
@@ -63,28 +63,24 @@ function showQuestion() {
     }
 
     updateNavigation();
-    startTimer(); // Reset timer untuk soal baru
+    startTimer();
 }
 
 function answerQuestion(answer = null) {
   let questionData = questions[currentQuestionIndex];
   
-  // For text questions, get the value from the input
   if (questionData.type === 'text') {
       answer = document.getElementById('answer').value.trim();
       console.log(answer)
   }
 
-
-  // Check answer and update score
   if (answer === questionData.answer) {
       score += questionData.points;
-      answeredQuestions[currentQuestionIndex] = true; // Mark question as answered
+      answeredQuestions[currentQuestionIndex] = true; 
   } else {
       answeredQuestions[currentQuestionIndex] = false;
   }
 
-  // // Update navigation buttons and move to next question
   updateNavigation();
   currentQuestionIndex++;
   clearInterval(timer);
@@ -93,7 +89,7 @@ function answerQuestion(answer = null) {
 }
 
 function startTimer() {
-  clearInterval(timer); // Ensure no previous timer interferes
+  clearInterval(timer); 
   let timeLeft = 30;
   document.getElementById('time-left').innerText = timeLeft;
   timer = setInterval(() => {
@@ -121,8 +117,8 @@ function navigateToQuestion(index) {
 function updateNavigation() {
   let navButtons = document.querySelectorAll('#question-navigation button');
   navButtons.forEach((button, index) => {
-      button.classList.toggle('active', index === currentQuestionIndex); // Highlight current question
-      button.classList.toggle('completed', answeredQuestions[index]); // Mark answered questions as green
+      button.classList.toggle('active', index === currentQuestionIndex); 
+      button.classList.toggle('completed', answeredQuestions[index]);
   });
 }
 
