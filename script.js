@@ -44,7 +44,7 @@ function showQuestion() {
     }
 
     let questionData = questions[currentQuestionIndex];
-    document.getElementById('question-number').innerText = `Question ${currentQuestionIndex + 1}`;
+    document.getElementById('question-number').innerHTML = `Question ${currentQuestionIndex + 1}`;
     document.getElementById('question').innerText = questionData.question;
     let choicesDiv = document.getElementById('choices');
     choicesDiv.innerHTML = '';
@@ -130,7 +130,7 @@ function endQuiz() {
 
 function showResult() {
   let playerData = JSON.parse(localStorage.getItem('playerData')) || {};
-  document.getElementById('player-name').innerText = `Name: ${playerData.name || ''}`;
+  document.getElementById('player-name').innerText = `Name: ${playerData.nama || ''}`;
   document.getElementById('player-nim').innerText = `NIM: ${playerData.nim || ''}`;
   document.getElementById('total-score').innerText = `Total Score: ${playerData.score || 0}`;
 }

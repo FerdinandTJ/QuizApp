@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Data</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="form-container">
         <h2>Enter Your Details</h2>
-        <form id="player-form">
+        <form action="quiz.php" method="POST">
             <label for="name">Name:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="nama" name="nama" required>
             
             <label for="nim">NIM:</label>
-            <input type="text" id="nim" required>
+            <input type="text" id="nim" name="nim" required>
             
-            <button type="submit">Start Quiz</button>
+            <input type="submit">Start Quiz</input>
         </form>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
+
+
